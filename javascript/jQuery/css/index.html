@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery CSS Method</title>
+		<link href="../../prism/prism.css" rel="stylesheet" />
+		<script src="../../prism/prism.js"></script>
+		<!-- <script src="library/jquery.min.js"></script> -->
+
+		<style>
+			body {
+				font-family: 'Montserrat', 'Arial', 'Helvetica', 'sans-serif';
+				font-size: 18px;
+			}
+
+			.page_wrapper {
+				width: 800px;
+				margin: 0 auto;
+			}
+
+			.article_title {
+				padding-bottom: 10px;
+				font-size: 21px;
+				border-bottom: 1px solid #ccc;
+			}
+
+			.article_title span {
+				font-weight: bold;
+			}
+
+			.description {
+				padding: 10px 0;
+			}
+
+			.example {
+				padding: 10px 0;
+			}
+
+			.box {
+				background-color: #000;
+				width: 100px;
+				height: 100px;
+				opacity: 0.8;
+			}
+
+			pre {
+				margin: 10px 0;
+				overflow: auto;
+				padding-left: 0!important;
+			}
+		</style>
+
+	</head>
+	<body>
+
+	<div class="page_wrapper">
+
+		<div class="article_title">jQuery<span>.css</span></div>
+
+		<div class="description">
+			<p>jQuery's .css method can GET or SET a DOM element's CSS properties</p>
+		</div>
+
+		<div class="description">
+			<p>The following tutorial will demonstrate 4 core concepts of jQuery's .css method</p>
+			<p>1. GET a CSS property from a DOM element</p>
+			<p>2. GET multiple CSS properties from a DOM element</p>
+			<p>3. SET a CSS property on DOM elements</p>
+			<p>4. SET multiple CSS properties on DOM elements</p>
+		</div>
+
+		<div class="description">
+			<p>Let's start by creating a &lt;div> with a solid background color</p>
+		</div>
+
+		<div class="example">
+			<div class="box"></div>
+		</div>
+
+		<pre class="line-numbers">
+			<code class="language-markup">
+				&lt;!-- CSS -->
+				.box {
+					background-color: #000;
+					width: 100px;
+					height: 100px;
+					opacity: 0.8;
+				}
+
+				&lt;!-- HTML -->
+				&lt;div class="box">&lt;/div>
+			</code>
+		</pre>
+
+		<div class="description">
+			<p>Next, let's use jQuery's .css method to GET the opacity of the &lt;div></p>
+		</div>
+
+		<pre class="line-numbers">
+			<code class="language-markup">
+			&lt;!-- 1. GET a CSS property from a DOM element -->
+
+			&lt;script>
+				var box_opacity = $('.box').css('opacity');
+				console.log(box_opacity) // "0.8"
+			&lt;/script>
+			</code>
+		</pre>
+
+		<div class="description">
+			<p>Note: jQuery's .css method returns the CSS value as a string, not a number</p>
+		</div>
+
+		<div class="description">
+			<p>To return multiple CSS properties, pass in an array of CSS properties.  Passing in an array of CSS properties will return an object with CSS key:"value" pairs</p>
+		</div>
+
+		<pre class="line-numbers">
+			<code class="language-markup">
+			&lt;!-- 2. GET multiple CSS properties from a DOM element -->
+
+			&lt;script>
+				var box_props = $('.box').css(['opacity', 'width', 'height', 'background-color']);
+				console.log(box_props); // Object {opacity: "0.8", width: "100px", height: "100px", background-color: "rgb(0, 0, 0)"}
+				console.log(box_props.width); // "100px"
+				console.log(box_props.opacity); // "0.8"
+			&lt;/script>
+			</code>
+		</pre>
+
+
+
+	</div>
+
+	</body>
+</html>
