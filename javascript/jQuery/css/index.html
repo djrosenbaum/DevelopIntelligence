@@ -57,7 +57,8 @@
 		<div class="article_title">jQuery<span>.css</span></div>
 
 		<div class="description">
-			<p>jQuery's .css method can GET or SET a DOM element's CSS properties</p>
+			<p>jQuery's .css method is used to GET or SET DOM element CSS properties</p>
+			<a href="http://api.jquery.com/css/">http://api.jquery.com/css/</a>
 		</div>
 
 		<div class="description">
@@ -69,7 +70,11 @@
 		</div>
 
 		<div class="description">
-			<p>Let's start by creating a &lt;div> with a solid background color</p>
+			<p>When looking to GET a CSS property with jQuery's .css method, jQuery will return the first matched element's CSS properties. So, you will want to pay close attention to the jQuery selector used when requesting a CSS property. If you pass a class into the selector and a group of elements gets returned, jQuery's .css method will only show CSS properties for the first matched element in the group of matched elements.</p>
+		</div>
+
+		<div class="description">
+			<p>Let's start by taking a look at using jQuery's .css method to GET a CSS property from a DOM element with a class of box. In this first example, let's create a &lt;div> with a solid background color</p>
 		</div>
 
 		<div class="example">
@@ -127,7 +132,53 @@
 			</code>
 		</pre>
 
+		<div class="description">
+			<p>Next, let's take a look at how to set CSS properties with jQuery. When looking to SET CSS properties, all matched elements returned by the selector will have the css properties defined SET. Setting properties with jQuery's .css method makes updating a large group of html elements easy.  You could update all of paragraph tags in your docuemnt with just one line of code.</p>
+		</div>
 
+		<pre class="line-numbers">
+			<code class="language-markup">
+			&lt;!-- 3. SET a CSS property on a DOM element -->
+
+			&lt;script>
+				$('.box').css('opacity', '0.2');
+			&lt;/script>
+			</code>
+		</pre>
+
+		<div class="example">
+			<div class="box" style="opacity:0.2"></div>
+		</div>
+
+		<div class="description">
+			<p>Finally, setting multiple css properties with jQuery can be done by passing in a javascript object. The key is name of the css property, and the value will be the css value. A good practice is to enclose the keys within quotes to avoid errors with certain css properties such as background-color which has a hyphen between background and color.</p>
+		</div>
+
+		<pre class="line-numbers">
+			<code class="language-markup">
+			&lt;!-- 4. SET multiple CSS properties on all matched DOM elements -->
+
+			&lt;script>
+				$('.box').css({
+					'opacity': '1',
+					'width': '50px',
+					'height': '50px',
+					'background-color': '#f48035'
+				});
+			&lt;/script>
+			</code>
+		</pre>
+
+		<div class="example">
+			<div class="box" style="opacity: 1; width: 50px; height: 50px; background-color: #f48035; display:inline-block;"></div>
+			<div class="box" style="opacity: 1; width: 50px; height: 50px; background-color: #f48035; display:inline-block;"></div>
+			<div class="box" style="opacity: 1; width: 50px; height: 50px; background-color: #f48035; display:inline-block;"></div>
+			<div class="box" style="opacity: 1; width: 50px; height: 50px; background-color: #f48035; display:inline-block;"></div>
+		</div>
+
+		<div class="description">
+			<p>To summarize, jQuery's .css method makes getting and setting css properties with javascript convenient and easy. Whether you are looking to get the font size of some text, or set the width and height of an html element jQuery's .css method is a great addition to your tool set.  One detail to take note of when getting a css property, is the css values will get returned as a string. However, when setting a css property such as opacity, width, height, etc.. the .css method conveniently accepts strings or numbers. When setting multiple css properties, a good practice is to wrap your javascript's object keys in single or double quotes.</p>
+		</div>
 
 	</div>
 
