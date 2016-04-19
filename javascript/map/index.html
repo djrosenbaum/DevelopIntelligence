@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Unit conversion with javascript Array.map()</title>
+		<link href="../prism/prism.css" rel="stylesheet" />
+		<script src="../prism/prism.js"></script>
+		<!-- <script src="library/jquery.min.js"></script> -->
+
+		<style>
+			body {
+				font-family: 'Montserrat', 'Arial', 'Helvetica', 'sans-serif';
+				font-size: 18px;
+			}
+
+			.page_wrapper {
+				width: 800px;
+				margin: 0 auto;
+			}
+
+			.article_title {
+				padding-bottom: 10px;
+				font-size: 21px;
+				border-bottom: 1px solid #ccc;
+			}
+
+			.article_title span {
+				font-weight: bold;
+			}
+
+			.description {
+				padding: 10px 0;
+			}
+
+			.example {
+				padding: 10px 0;
+			}
+
+			.box {
+				background-color: #000;
+				width: 100px;
+				height: 100px;
+				opacity: 0.8;
+			}
+
+			pre {
+				margin: 10px 0;
+				overflow: auto;
+				padding-left: 0!important;
+			}
+		</style>
+
+	</head>
+	<body>
+
+	<div class="page_wrapper">
+
+		<div class="article_title">Unit conversion with javascript <span>Array.map()</span></div>
+
+		<div class="description">
+			<p>This tutorial will demonstrate how to convert units of measurement with the javascript Array.map() method.</p>
+		</div>
+
+		<div class="description">
+			<p>The map() method is called as a prototype method of an array. The function passed to array.map() runs on every element in that array, and then returns a new array with the returned values.</p>
+		</div>
+
+		<div class="description">
+			<p>The following examples convert distance, temperature, weight, and time to demonstrate some scenarios for when and how to use the Array.map() method.</p>
+
+			<ul>
+				<li>1. Convert Meters to Centimeters</li>
+				<li>2. Convert Celsius to Fahrenheit</li>
+				<li>3. Convert Kilograms to Grams</li>
+				<li>4. Convert Years to Days</li>
+			</ul>
+		</div>
+
+		<div class="description">
+			<p>Let's say we have an array of measurements in meters, but what we really need is an array of those measurements in centimeters.</p>
+			<p>To convert from Meters to Centimeters multiply total meters by 100</p>
+		</div>
+
+		<pre class="line-numbers">
+			<code class="language-javascript">
+				function meters_to_centimeters( distance ) {
+					var centimeters = distance * 100;
+					return centimeters;
+				}
+
+				var meters_array = [2, 1.5, 14, 4.2, 8];
+
+				var centimeters_array = meters_array.map(meters_to_centimeters);
+
+				console.table([meters_array,centimeters_array]);
+				//meters: [2, 1.5, 14, 4.2, 8];
+				//centimeters: [200, 150, 1400, 420, 800]
+			</code>
+		</pre>
+
+		<div class="description">
+			<p>Let's take a look at an example using the map() method to convert an array of temperatures in Celsius to an array of temperatures in Fahrenheit.</p>
+			<p>To convert temperatures in degrees Celsius to Fahrenheit, multiply by 1.8 and then add 32.</p>
+		</div>
+
+		<pre class="line-numbers">
+			<code class="language-javascript">
+				function celsius_to_fahrenheit( temperature ) {
+					var fahrenheit = (temperature * 1.8) + 32;
+					return fahrenheit;
+				}
+
+				var temperatures_in_celsius = [10, 16, 20, 24, 32];
+
+				var temperatures_in_fahrenheit = temperatures_in_celsius.map(celsius_to_fahrenheit);
+
+				console.table([temperatures_in_celsius,temperatures_in_fahrenheit]);
+				//celsius: [10, 16, 20, 24, 32];
+				//fahrenheit: [50, 60.8, 68, 75.2, 89.6];
+			</code>
+		</pre>
+
+		<div class="description">
+			<p>Let's take a look at an example using the map() method to convert a array of weights in kilograms to an array in grams</p>
+			<p>To convert weight from Kilograms to grams, multiply by 1000</p>
+		</div>
+
+		<pre class="line-numbers">
+			<code class="language-javascript">
+				function kilograms_to_grams( weight ) {
+					var grams = weight * 1000;
+					return grams;
+				}
+
+				var weights_in_kilograms = [12, 6, 2, 14, 7];
+
+				var weights_in_grams = weights_in_kilograms.map(kilograms_to_grams);
+
+				console.table([weights_in_kilograms, weights_in_grams]);
+				//kilograms: [12, 6, 2, 14, 7];
+				//grams: [12000, 6000, 2000, 14000, 7000];
+			</code>
+		</pre>
+
+		<div class="description">
+			<p>Lastly, let's use the javascript map() method to convert an array of time in years to an array in days</p>
+			<p>To convert years to days, multiply years by 365 days</p>
+		</div>
+
+		<pre class="line-numbers">
+			<code class="language-javascript">
+				function years_to_days( time ) {
+					var days = time * 365;
+					return days;
+				}
+
+				var years_array = [12, 21, 31, 54, 72];
+
+				var days_array = years_array.map(years_to_days);
+
+				console.table([years_array, days_array]);
+				//years: [12, 21, 31, 54, 72];
+				//days: [4380, 7665, 11315, 19710, 26280];
+			</code>
+		</pre>
+
+		<div class="description">
+			<p>To summarize, javascripts Array.map() method is useful for converting a group of measurements with javascript. Whether you are looking to convert a group of distances, temperatures, weights, or times Array.map() can handle the job. </p>
+
+			<p>For a more in depth explanation of the Array.map() javascript method, checkout the Mozilla Developer Network map() method documentation.</p>
+			<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">MDN Array.prototype.map()</a>
+		</div>
+
+	</div>
+
+	</body>
+</html>
