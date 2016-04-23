@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Learn to Add and Remove elements with Array.splice()</title>
+		<link href="../prism/prism.css" rel="stylesheet" />
+		<script src="../prism/prism.js"></script>
+		<!-- <script src="library/jquery.min.js"></script> -->
+
+		<style>
+			body {
+				font-family: 'Montserrat', 'Arial', 'Helvetica', 'sans-serif';
+				font-size: 18px;
+			}
+
+			.page_wrapper {
+				width: 800px;
+				margin: 0 auto;
+			}
+
+			.article_title {
+				padding-bottom: 10px;
+				font-size: 21px;
+				border-bottom: 1px solid #ccc;
+			}
+
+			.article_title span {
+				font-weight: bold;
+			}
+
+			.description {
+				padding: 10px 0;
+			}
+
+			.example {
+				padding: 10px 0;
+			}
+
+			.box {
+				background-color: #000;
+				width: 100px;
+				height: 100px;
+				opacity: 0.8;
+			}
+
+			pre {
+				margin: 10px 0;
+				overflow: auto;
+				padding-left: 0!important;
+			}
+		</style>
+
+	</head>
+	<body>
+
+	<div class="page_wrapper">
+
+		<div class="article_title">Unit conversion with javascript <span>Array.map()</span></div>
+
+		<div class="description">
+			<p>When you already have an existing array and need to make some edits, Array.splice() comes in handy. The splice() method will let you INSERT or REMOVE elements from a javascript array.</p>
+		</div>
+
+		<div class="description">
+			<p>Imagine we have the following array [0,1,2,3,5,6]. The following code example will insert the number 4 between the 3 and 5.</p>
+		</div>
+
+		<pre class="line-numbers">
+			<code class="language-javascript">
+				var my_array = [0,1,2,3,5,6];
+				my_array.splice(4, 0, 4);
+				console.log('my_array');
+				//[0,1,2,3,4,5,6];
+			</code>
+		</pre>
+
+		PARAMETERS
+		START, DELETE COUNT, INSERTION
+
+		NOTE NOTHING GETS RETURNED, ACTS ON THE ORIGINAL ARRAY
+
+
+
+
+
+
+
+		['a','b','c','e','f'];
+
+	</div>
+
+	</body>
+</html>
