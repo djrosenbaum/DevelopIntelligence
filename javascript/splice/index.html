@@ -61,40 +61,56 @@
 		</div>
 
 		<div class="description">
-			<p>Let's start by taking a look at the arguments passed into the splice() method. Array.splice(start_index, number_of_elements_to_delete, elements_to_insert)</p>
-			<p>The start index refers to the position in the array where the Insertion or Removal of elements will begin.</p>
+			<p>Before jumping into any examples, let's start by taking a look at the arguments passed into the splice() method. Array.splice(start_index, number_of_elements_to_remove)</p>
+			<p>start_index refers to the position in the array where the Insertion or Removal of elements will begin.</p>
+			<p>number_of_elements_to_remove will begin at the start index, and remove X number of elements from the array</p>
+			<p>all arguments following number_of_elements_to_remove will get inserted to the array from the start_index</p>
 		</div>
 
-
-
 		<div class="description">
-			<p>Imagine we have the following array [0,1,2,3,5,6]. The following code example will INSERT the number 3 between the 2 and 4.</p>
+			<p>Imagine we have the following array [0,1,3,4]</p>
+			<p>The following code example will INSERT the number 2 between the 1 and 3.</p>
 		</div>
 
 		<pre class="line-numbers">
 			<code class="language-javascript">
-				var my_array = [0,1,2,4,5];
-				var start_index = 3
-				var number_of_elements_to_delete = 0;
-				var element_to_insert = 3;
-				my_array.splice(start_index, number_of_elements_to_delete, element_to_insert);
+				var my_array = [0,1,3,4];
+				var start_index = 2
+				var number_of_elements_to_remove = 0;
+				my_array.splice(start_index, number_of_elements_to_remove, 2);
 				console.log(my_array);
-				//[0,1,2,3,4,5];
+				//[0,1,2,3,4];
 			</code>
 		</pre>
 
+		<div class="description">
+			<p>Take note when using the array.splice() method, the splice() method acts directly on the array. So my_array calling the splice() method gets updated.</p>
+		</div>
 
+		<div class="description">
+			<p>Let's take a look at an example of removing an element from an array in javascript.</p>
+		</div>
 
-		PARAMETERS
-		START, DELETE COUNT, INSERTION
+		<pre class="line-numbers">
+			<code class="language-javascript">
+				var my_array = ['a','b','c','k','d'];
+				var start_index = 3
+				var number_of_elements_to_remove = 1;
+				var removed_elements = my_array.splice(start_index, number_of_elements_to_remove);
+				console.log(removed_elements);
+				//['k']
+				console.log(my_array);
+				//['a','b','c','d'];
+			</code>
+		</pre>
 
-		NOTE NOTHING GETS RETURNED, ACTS ON THE ORIGINAL ARRAY
+		<div class="description">
+			<p>Take note when using the array.splice() method to remove elements, the an array of removed elements will get returned</p>
+		</div>
 
+		
 
-
-
-
-
+		NOTE WHEN USING ARRAY.SPLICE() THIS METHOD ACTS DIRECTLY ON THE ARRAY, AND RETURNS THE REMOVED VALUES FROM THE ARRAY
 
 		['a','b','c','e','f'];
 
