@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Learn to Add and Remove elements with Array.splice()</title>
+		<title>Insert, Remove, and Replace elements with Array.splice()</title>
 		<link href="../prism/prism.css" rel="stylesheet" />
 		<script src="../prism/prism.js"></script>
 		<!-- <script src="library/jquery.min.js"></script> -->
@@ -54,7 +54,7 @@
 
 	<div class="page_wrapper">
 
-		<div class="article_title">Learn to Insert, Remove, and Replace elements with Array.splice()</span></div>
+		<div class="article_title">Insert, Remove, and Replace elements with Array.splice()</span></div>
 
 		<div class="description">
 			<p>When you already have an existing array and need to make some edits, the Array.splice() method comes in handy. The splice() method allows you to INSERT, REMOVE, and REPLACE elements from a javascript array.</p>
@@ -64,7 +64,7 @@
 			<p>Before jumping into any examples, let's start by taking a look at the arguments passed into the splice() method. Array.splice(start_index, number_of_elements_to_remove)</p>
 			<p>start_index refers to the position in the array where the Insertion or Removal of elements will begin.</p>
 			<p>number_of_elements_to_remove will begin at the start index, and remove X number of elements from the array</p>
-			<p>all arguments following number_of_elements_to_remove will get inserted to the array from the start_index</p>
+			<p>all arguments following number_of_elements_to_remove will get inserted in to the array from the start_index</p>
 		</div>
 
 		<div class="description">
@@ -75,7 +75,7 @@
 		<pre class="line-numbers">
 			<code class="language-javascript">
 				var my_array = [0,1,3,4];
-				var start_index = 2
+				var start_index = 2;
 				var number_of_elements_to_remove = 0;
 				my_array.splice(start_index, number_of_elements_to_remove, 2);
 				console.log(my_array);
@@ -84,35 +84,54 @@
 		</pre>
 
 		<div class="description">
-			<p>Take note when using the array.splice() method, the splice() method acts directly on the array. So my_array calling the splice() method gets updated.</p>
+			<p>Take note when using the array.splice() method, the splice() method acts directly on the array. So calling the splice() method on my_array, will update my_array.</p>
 		</div>
 
 		<div class="description">
-			<p>Let's take a look at an example of removing an element from an array in javascript.</p>
+			<p>Let's take a look at an example of REMOVING an element from an array in javascript.</p>
 		</div>
 
 		<pre class="line-numbers">
 			<code class="language-javascript">
-				var my_array = ['a','b','c','k','d'];
+				var my_array = ["a","b","c","k","d"];
 				var start_index = 3
 				var number_of_elements_to_remove = 1;
 				var removed_elements = my_array.splice(start_index, number_of_elements_to_remove);
 				console.log(removed_elements);
-				//['k']
+				//["k"]
 				console.log(my_array);
-				//['a','b','c','d'];
+				//["a","b","c","d"];
 			</code>
 		</pre>
 
 		<div class="description">
-			<p>Take note when using the array.splice() method to remove elements, the an array of removed elements will get returned</p>
+			<p>Take note when using the array.splice() method to remove elements, an array of the removed elements will get returned</p>
 		</div>
 
-		
+		<div class="description">
+			<p>Lastly, let's take a look at REPLACING some elements in a javascript array with the splice() method</p>
+		</div>
 
-		NOTE WHEN USING ARRAY.SPLICE() THIS METHOD ACTS DIRECTLY ON THE ARRAY, AND RETURNS THE REMOVED VALUES FROM THE ARRAY
+		<pre class="line-numbers">
+			<code class="language-javascript">
+				var my_array = ["baseball", "basketball", "tennis", "golf"];
+				var start_index = 1
+				var number_of_elements_to_remove = 2;
+				var removed_elements = my_array.splice(start_index, number_of_elements_to_remove, "boxing", "bowling", "volleyball");
+				console.log(removed_elements);
+				//["tennis", "golf"]
+				console.log(my_array);
+				//["baseball", "boxing", "bowling", "volleyball", "golf"];
+			</code>
+		</pre>
 
-		['a','b','c','e','f'];
+		<div class="description">
+			<p>The above example may seem a little confusing because of all of the pieces.  Basically, the above example replaces the sports "basketball" and "tennis" with "boxing", "bowling", and "volleyball"</p>
+		</div>
+
+		<div class="description">
+			<p>The splice() method works well when looking to INSERT or REMOVE values from a javascript array. If your array is already sorted, the splice() method works well to explicitly position new values exactly where you want in the array. The splice() method also works well when looking to remove values from an array by index. Something to pay close attention to is that the splice() method acts directly on the array. Only the values that were removed, deleted, or stripped from the array will get returned.</p>
+		</div>
 
 	</div>
 
