@@ -61,34 +61,137 @@
 		</div>
 
 		<div class="description">
-			<p>The forEach() method can be called with any javascript array, and will let you run a function for each element in the array.</p>
+			<p>forEach() is one of those methods you will call with javascript arrays to run a function on each indexed element in an array. The forEach() method will let you loop through an array in order starting at Array[0] calling a function for each element in the array.</p>
 		</div>
 
 		<div class="description">
-			<p>First, let's take a look at the parameters passed in to the Array.forEach() method.</p>
+			<p>When calling the forEach() method, there are some parameters that will get passed in including the current value, array index of that value, and also the array itself.</p>
 			<p>Array.forEach( function(current_value, index, initial_array) {}, this_context )</p>
-			<p>Since the callback function gives us access to the current value, index, and initial array; the forEach() method is typically used to traverse an array performing some task on each element.</p>
-			<p>this_context is an optional parameter, and a more in depth explanation can be found at the following Array.prototype.forEach() MDN article <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach</a>
+			<p>The callback function gives us access to the current value, index, and initial array. These parameters that we have access to from the forEach() method are helpful when traversing an array to perform some task on each element.</p>
+			<p>this_context is an optional parameter to set scope, and a more in depth explanation can be found at the following Array.prototype.forEach() MDN article <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach</a>
 		</div>
 
 		<div class="description">
-			<p>So, let's take a look at a simple example of using forEach() to total all of the numbers in an array</p>
+			<p>forEach is great for looping over an array of values, and then running a function on each of those values. forEach() is also a good alternative to using a for() loop if you are looking to reuse a callback function or for readability. The below example compares the readability of a for loop versus using the forEach() method.</p>
+		</div>
+
+		<pre>
+			<code>
+				var my_array = ['a', 'b', 'c'];
+
+				for (var i=0; i<my_array.length; i++) {
+					console.log(my_array[i]);
+					//a b c
+				}
+
+				my_array.forEach(function(current_value) {
+					console.log(current_value);
+					//a b c
+				});
+			</code>
+		</pre>
+
+		<div class="description">
+			<p>Next, let's check out at an example of using forEach() to loop through an array of numbers to check if each number in the javascript array is even or odd</p>
 		</div>
 
 		<pre class="line-numbers">
 			<code class="language-javascript">
-				var sum_of_numbers = 0;
-
 				var array_of_numbers = [5, 7, 1, 9, 8, 5];
 
 				array_of_numbers.forEach(function(current_value, index, initial_array) {
-					sum_of_numbers += current_value;
+					if (current_value % 2) {
+						console.log('odd');
+					}
+					else {
+						console.log('even');
+					}
 				});
-
-				console.log(sum_of_numbers);
-				//35
+				//odd, odd, odd, odd, even, odd
 			</code>
 		</pre>
+
+		<div class="description">
+			<p>Maybe we want to use the forEach() method to separate the even from odd numbers instead</p>
+		</div>
+
+		<pre class="line-numbers">
+			<code class="language-javascript">
+				var even_numbers = [];
+				var odd_numbers = [];
+
+				function separate_evens_from_odds(value) {
+					if ( value % 2 ) {
+						odd_numbers.push(value);
+					}
+					else {
+						even_numbers.push(value);
+					}
+				}
+
+				var array_of_numbers = [5, 7, 1, 9, 8, 5];
+
+				array_of_numbers.forEach(separate_evens_from_odds);
+
+				console.log(even_numbers); //[8]
+				console.log(odd_numbers); //[5, 7, 1, 9, 5]
+				//
+			</code>
+		</pre>
+
+		<div class="description">
+			<p>What if we had a couple of shopping carts of items, and wanted to total the cost. Let's see how we might go about totaling the cost of all items from our shopping carts using the forEach() method.</p>
+		</div>
+
+		<pre class="line-numbers">
+			<code class="language-javascript">
+				var total_cost = 0;
+
+				function add_to_total_cost(amount) {
+					total_cost += amount.cost;
+				}
+
+				var shopping_cart_1 = [
+					{
+						item: 'shirt',
+						cost: 22
+					},
+					{
+						item: 'shorts',
+						cost: 26
+					}
+				];
+
+				var shopping_cart_2 = [
+					{
+						item: 'cereal',
+						cost: 4
+					},
+					{
+						item: 'milk',
+						cost: 3
+					},
+					{
+						item: 'eggs',
+						cost: 2
+					}
+				]
+
+				shopping_cart_1.forEach(add_to_total_cost);
+				shopping_cart_2.forEach(add_to_total_cost);
+
+				console.log(total_cost);
+				//57
+			</code>
+		</pre>
+
+		<div class="description">
+			<p>While the forEach() method can be useful, forEach() does come with some disadvantages. Maybe you are wondering how to break out of a forEach() loop early when a certain value in the array is reached. One of the issues with using forEach() is that there is no way to terminate or break out of the loop without throwing an exception. Another disadvantage  is that forEach() is not chainable since a forEach() returns a value of undefined.</p>
+		</div>
+
+		<div class="description">
+			<p>For some more examples exlaining the forEach() method, check out this post <a href="https://blog.udemy.com/javascript-foreach/">JavaScript ForEach : How to Traverse Through an Array</a></p>
+		</div>
 
 	</div>
 
